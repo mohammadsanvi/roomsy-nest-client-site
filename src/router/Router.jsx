@@ -5,6 +5,7 @@ import Root from "../Layouts/Root/Root";
 import Home from "../Components/Home/Home";
 import Login from "../Components/Login/Login";
 import Singup from "../Components/Login/Signup";
+import Error from "../Pages/Error";
 
 
 
@@ -25,7 +26,11 @@ import Singup from "../Components/Login/Signup";
           path: 'signup',
           Component: Singup
         }
-      ]
+      ],
     },
+    {
+        path: '*',
+        element:<Error></Error>
+      }
   ]);
   

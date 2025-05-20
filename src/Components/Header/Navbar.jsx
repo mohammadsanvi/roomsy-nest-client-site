@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router";
 import useThemeToggle from "../ThemeToggole/ThemeToggole";
 import { CiDark, CiLight, CiLineHeight } from "react-icons/ci";
 import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 import { FiSun } from "react-icons/fi";
+import { AuthContext } from "../AuthContext/AuthContext";
 
 const Navbar = () => {
+  const { logOut, user } = useContext(AuthContext);
   const { theme, toggleTheme } = useThemeToggle();
   const links = (
     <>
@@ -21,27 +23,51 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink className={({ isActive }) =>
+        <NavLink
+          className={({ isActive }) =>
             isActive ? " text-blue-500" : "text-black dark:text-white"
-          } to="/login">Add to Find Roommate</NavLink>
+          }
+          to="/login"
+        >
+          Add to Find Roommate
+        </NavLink>
       </li>
       <li>
-        <NavLink className={({ isActive }) =>
+        <NavLink
+          className={({ isActive }) =>
             isActive ? " text-blue-500" : "text-black dark:text-white"
-          } to="/login">Browse Listing</NavLink>
+          }
+          to="/login"
+        >
+          Browse Listing
+        </NavLink>
       </li>
       <li>
-        <NavLink className={({ isActive }) =>
+        <NavLink
+          className={({ isActive }) =>
             isActive ? " text-blue-500" : "text-black dark:text-white"
-          } to="/login">My Listings</NavLink>
+          }
+          to="/login"
+        >
+          My Listings
+        </NavLink>
       </li>
     </>
   );
+
+  const hanldeLogout = () => {
+    console.log("logout procecing....");
+    logOut();
+  };
   return (
-    <div className="navbar shadow-sm h-10 fixed top-0 left-0 w-full z-50 bg-gray-100 text-black dark:bg-gray-900 dark:text-white">
+    <div className="navbar shadow-sm h-10 fixed dark:shadow-white px-8 md:px-12 lg:px-32 top-0 left-0 w-full z-50 bg-gray-100 text-black dark:bg-gray-900 dark:text-white">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className=" btn border-none shadow-none bg-gray-100 text-black dark:bg-base-200 dark:text-white lg:hidden">
+          <div
+            tabIndex={0}
+            role="button"
+            className=" btn border-none shadow-none bg-gray-100 text-black dark:bg-base-200 dark:text-white lg:hidden"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -111,12 +137,44 @@ const Navbar = () => {
           id="theme-tooltip"
           place="top"
         />
-        <button className="btn bg-white hover:border-blue-500 text-black shadow-none border border-black dark:border dark:border-white dark:bg-base-200 dark:text-white">
-          <Link className="hover:text-blue-500" to="/login">Login</Link>
-        </button>
-        <button className="btn  bg-white text-black hover:border-blue-500 shadow-none border border-black dark:border dark:border-white dark:bg-base-200 dark:text-white">
-          <Link className="hover:text-blue-500" to="/signup">Singup</Link>
-        </button>
+        {user ? (
+          <>
+            <div className="relative group inline-block">
+  <img
+    className="w-10 h-10 rounded-full cursor-pointer border-black border dark:border-white"
+    src={
+      user.photoURL ||
+      "https://i.ibb.co/Y44FR6Gp/pngtree-casual-man-flat-design-avatar-profile-picture-vector-png-image-12593008.png"
+    }
+    alt="profile"
+  />
+  <div className="absolute mb-2 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition bg-white bg-opacity-80 text-black dark:bg-gray-700 dark:text-white text-sm px-2 py-1 rounded shadow-lg z-10 whitespace-nowrap">
+                {user.displayName}
+  </div>
+</div>
+
+            <button
+              className="btn hover:shadow-lg max-w-16 dark:btn-primary btn-active "
+              onClick={hanldeLogout}
+            >
+              Logout
+            </button>
+          </>
+        ) : (
+          <>
+            {" "}
+            <button className="btn bg-white hover:border-blue-500 text-black shadow-none border border-black dark:border dark:border-white dark:bg-base-200 dark:text-white">
+              <Link className="hover:text-blue-500" to="/login">
+                Login
+              </Link>
+            </button>
+            <button className="btn bg-white text-black hover:border-blue-500 shadow-none border border-black dark:border dark:border-white dark:bg-base-200 dark:text-white">
+              <Link className="hover:text-blue-500" to="/signup">
+                Singup
+              </Link>
+            </button>
+          </>
+        )}
       </div>
     </div>
   );
