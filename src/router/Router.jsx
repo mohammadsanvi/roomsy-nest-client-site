@@ -4,7 +4,7 @@ import {
 import Root from "../Layouts/Root/Root";
 import Home from "../Components/Home/Home";
 import Login from "../Components/Login/Login";
-import Singup from "../Components/Login/Singup";
+import Singup from "../Components/Login/Signup";
 
 
 
@@ -22,7 +22,7 @@ import Singup from "../Components/Login/Singup";
           Component: Login
         },
         {
-          path:'singup',
+          path: 'signup',
           Component: Singup
         }
       ]

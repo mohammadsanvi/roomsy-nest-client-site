@@ -38,7 +38,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar shadow-sm h-10 fixed top-0 left-0 w-full z-50 bg-gray-100 text-black dark:bg-base-200 dark:text-white">
+    <div className="navbar shadow-sm h-10 fixed top-0 left-0 w-full z-50 bg-gray-100 text-black dark:bg-gray-900 dark:text-white">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className=" btn border-none shadow-none bg-gray-100 text-black dark:bg-base-200 dark:text-white lg:hidden">
@@ -115,7 +115,7 @@ const Navbar = () => {
           <Link to="/login">Login</Link>
         </button>
         <button className="btn bg-white text-black shadow-none border border-black dark:border dark:border-white dark:bg-base-200 dark:text-white">
-          <Link to="/singup">Singup</Link>
+          <Link to="/signup">Singup</Link>
         </button>
       </div>
     </div>

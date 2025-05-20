@@ -1,80 +1,100 @@
-import React from 'react';
-import { NavLink } from 'react-router';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 
 const Footer = () => {
-  const links = ( <>
-        <li>
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              isActive ? "text-blue-500" : "text-black dark:text-white"
-            }
-          >
-            Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink className={({ isActive }) =>
-              isActive ? " text-blue-500" : "text-black dark:text-white"
-            } to="/login">Add to Find Roommate</NavLink>
-        </li>
-        <li>
-          <NavLink className={({ isActive }) =>
-              isActive ? " text-blue-500" : "text-black dark:text-white"
-            } to="/login">Browse Listing</NavLink>
-        </li>
-        <li>
-          <NavLink className={({ isActive }) =>
-              isActive ? " text-blue-500" : "text-black dark:text-white"
-            } to="/login">My Listings</NavLink>
-        </li>
-  </>
-  )
-    return (
-      <footer className="footer footer-horizontal footer-center bg-gray-100 text-black dark:bg-base-200 dark:text-white text-base-content rounded p-10">
-        {links}
-  <nav>
-    <div className="grid grid-flow-col gap-4">
-      <a>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          className="fill-current">
-          <path
-            d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
-        </svg>
-      </a>
-      <a>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          className="fill-current">
-          <path
-            d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
-        </svg>
-      </a>
-      <a>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          className="fill-current">
-          <path
-            d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
-        </svg>
-      </a>
-    </div>
-  </nav>
-  <aside>
-    <p>Copyright © {new Date().getFullYear()} - All right reserved by ACME Industries Ltd</p>
-  </aside>
-</footer>
-    );
+  return (
+    <footer className="bg-gray-100 dark:bg-gray-900 md:p-10 p-4 text-black dark:text-white px-6 py-10">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+        
+        {/* Logo + About */}
+        <div className="flex flex-col items-center md:items-start text-center md:text-left">
+          <img
+            className="h-20 md:h-full mb-4 object-contain"
+            src="https://i.ibb.co/Qjc1NP3J/logo.png"
+            alt="RoomsyNest Logo"
+          />
+          <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+            <strong>RoomsyNest</strong> helps you find compatible roommates based on location, budget, lifestyle, and interests. Whether you're moving or sharing, we connect you with the right people for a better living experience.
+          </p>
+          {/* Social Icons */}
+          <div className="flex gap-4 md:gap-10 my-8 text-lg text-gray-600 dark:text-gray-300">
+            <a href="#" className="hover:text-blue-500">
+              <FaFacebookF size={30} />
+            </a>
+            <a href="#" className="hover:text-blue-500">
+              <FaTwitter size={30}/>
+            </a>
+            <a href="#" className="hover:text-blue-500">
+              <FaLinkedinIn size={30}/>
+            </a>
+          </div>
+        </div>
+
+        {/* Quick Links */}
+        <div className="flex flex-col items-center md:items-start text-center md:text-left">
+          <h6 className="text-lg font-semibold text-blue-500 mb-4">Quick Links</h6>
+          <ul className="space-y-2 text-sm font-medium">
+            <li>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? "text-blue-500" : "hover:text-blue-400"
+                }
+              >
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/login"
+                className={({ isActive }) =>
+                  isActive ? "text-blue-500" : "hover:text-blue-400"
+                }
+              >
+                Add to Find Roommate
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/login"
+                className={({ isActive }) =>
+                  isActive ? "text-blue-500" : "hover:text-blue-400"
+                }
+              >
+                Browse Listing
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/login"
+                className={({ isActive }) =>
+                  isActive ? "text-blue-500" : "hover:text-blue-400"
+                }
+              >
+                My Listings
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+
+        {/* Legal Links */}
+        <div className="flex flex-col items-center md:items-start text-center md:text-left">
+          <h6 className="text-lg font-semibold text-blue-500 mb-4">Legal</h6>
+          <ul className="space-y-2 text-sm font-medium">
+            <li><a href="#" className="hover:text-blue-400">Terms of Use</a></li>
+            <li><a href="#" className="hover:text-blue-400">Privacy Policy</a></li>
+            <li><a href="#" className="hover:text-blue-400">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Footer Bottom */}
+      <div className="mt-10 text-center text-xs text-gray-600 dark:text-gray-400">
+        © {new Date().getFullYear()} RoomsyNest — All rights reserved.
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;
