@@ -111,11 +111,11 @@ const Navbar = () => {
           id="theme-tooltip"
           place="top"
         />
-        <button className="btn bg-white text-black shadow-none border border-black dark:border dark:border-white dark:bg-base-200 dark:text-white">
-          <Link to="/login">Login</Link>
+        <button className="btn bg-white hover:border-blue-500 text-black shadow-none border border-black dark:border dark:border-white dark:bg-base-200 dark:text-white">
+          <Link className="hover:text-blue-500" to="/login">Login</Link>
         </button>
-        <button className="btn bg-white text-black shadow-none border border-black dark:border dark:border-white dark:bg-base-200 dark:text-white">
-          <Link to="/signup">Singup</Link>
+        <button className="btn  bg-white text-black hover:border-blue-500 shadow-none border border-black dark:border dark:border-white dark:bg-base-200 dark:text-white">
+          <Link className="hover:text-blue-500" to="/signup">Singup</Link>
         </button>
       </div>
     </div>

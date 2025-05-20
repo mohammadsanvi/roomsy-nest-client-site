@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+import "./signup.css";
+import { Typewriter } from "react-simple-typewriter";
+import { Helmet } from "react-helmet-async";
 
 const Signup = () => {
   const [password, setPassword] = useState("");
@@ -22,7 +25,8 @@ const Signup = () => {
   };
 
   const handleRegister = e => {
-    e.preventDefault()
+    e.preventDefault();
+    
   }
 
   const handleGoogleLogin = () => {
@@ -30,26 +34,40 @@ const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen bg-cover bg-center bg-cyan-50 dark:bg-gray-900 flex items-center justify-center relative px-4">
-      {/* Left Image */}
+    <div className="min-h-screen bg-cyan-50 dark:bg-gray-900 flex items-center justify-center relative px-4">
+      <Helmet>
+                <title>Roomsy Nest | Signup</title>
+              </Helmet>
+      {/* Left Image with subtle float animation */}
       <img
         src="https://i.ibb.co/GfMYTH8n/vecteezy-real-estate-agent-holding-key-against-transparent-background-55757481.png"
         alt="Agent"
-        className="hidden lg:block absolute left-4 max-w-sm h-auto z-10"
+        className="hidden lg:block absolute left-4 max-w-sm h-auto z-10 bg-left"
+        style={{ userSelect: "none", pointerEvents: "none" }}
       />
 
-      {/* Right Image */}
+      {/* Right Image with subtle float animation */}
       <img
         src="https://i.ibb.co/35LddL04/vecteezy-room-3d-rendering-icon-illustration-28574495.png"
         alt="Room"
-        className="hidden lg:block absolute right-4 max-w-xl h-auto z-10"
+        className="hidden lg:block absolute right-4 max-w-xl h-auto z-10 bg-right"
+        style={{ userSelect: "none", pointerEvents: "none" }}
       />
 
       {/* Signup Form */}
       <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur p-8 rounded-lg shadow-lg max-w-md w-full z-20">
+        {/* Text loop animation class */}
         <h2 className="text-3xl font-bold mb-6 text-center text-black dark:text-white">
-          Register
-        </h2>
+            <Typewriter
+              words={["Welcome!", "Create Your Account", "Join Us Today"]}
+              loop={0}
+              cursor
+              cursorStyle="|"
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={1500}
+            />
+          </h2>
 
         {error && (
           <div className="mb-4 p-3 text-sm rounded border border-red-500 text-red-600 dark:border-red-400 dark:text-red-400">
