@@ -67,7 +67,7 @@ const Banner = () => {
               {/* Image Side */}
               <div className="w-full md:w-1/2 mb-8 md:mb-0 flex justify-center">
                 <img
-                  src={images[index]} // You replace with actual image paths
+                  src={images[index]}
                   alt={slide.imageAlt}
                   className="max-h-[400px] w-auto object-contain"
                 />
