@@ -1,31 +1,23 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { Fade, Slide } from "react-awesome-reveal";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import { Typewriter } from "react-simple-typewriter";
 import Lottie from "lottie-react";
 import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
+import { AuthContext } from "../AuthContext/AuthContext";
 
 const Login = () => {
+  const { setUser, signInWithGoogle, signIn} = useContext(AuthContext);
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    if (!email || !password) {
-      setError("Please enter both email and password.");
-      return;
-    }
-    setError("");
-    alert(`Logged in with: ${email}`);
-  };
 
-  const handleGoogleLogin = () => {
-    alert("Google login clicked");
-  };
 
   return (
     <div className="min-h-screen bg-cyan-50 dark:bg-gray-900 flex items-center justify-center relative px-4 overflow-hidden">
@@ -59,6 +51,7 @@ const Login = () => {
           <form onSubmit={handleLogin}>
             <input
               type="email"
+              name="email"
               placeholder="Enter your email"
               className="w-full mb-4 p-3 rounded-md bg-white text-black border border-gray-300 dark:bg-gray-800 dark:text-white dark:border-gray-600 placeholder:text-gray-500 dark:placeholder:text-gray-400"
               value={email}
@@ -66,6 +59,7 @@ const Login = () => {
             />
             <input
               type="password"
+              name="password"
               placeholder="Enter your password"
               className="w-full mb-4 p-3 rounded-md bg-white text-black border border-gray-300 dark:bg-gray-800 dark:text-white dark:border-gray-600 placeholder:text-gray-500 dark:placeholder:text-gray-400"
               value={password}
@@ -86,7 +80,7 @@ const Login = () => {
             className="w-full flex items-center justify-center gap-2 mb-4 py-3 rounded-md border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
           >
             <FcGoogle size={22} />
-            <span>Continue with Google</span>
+            <span className="text-black dark:text-white">Continue with Google</span>
           </button>
 
           <ReactTooltip
