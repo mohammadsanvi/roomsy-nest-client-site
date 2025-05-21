@@ -1,6 +1,5 @@
 import { Slide } from 'react-awesome-reveal';
 import EventCard from './EventCard';
-
 const events = [
   {
     title: 'Ice Cream Truck',
@@ -70,13 +69,13 @@ const events = [
 
 const Events = () => {
   return (
-      <section className="py-12 bg-white dark:bg-gray-900">
+      <section className="py-12 bg-white dark:bg-gray-900 px-10 md:px-16">
       <h2 className="text-4xl font-bold text-center text-blue-500 mb-8">
         Upcoming Events
       </h2>
       <Slide direction="up" cascade damping={0.2} triggerOnce>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-6">
-        {events.map((event, index) => (
+          {events.map((event, index) => (
           <EventCard key={index} {...event} />
         ))}
         </div>

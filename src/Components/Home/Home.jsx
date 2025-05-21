@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
 import Banner from "./Banner";
-import Events from "./Eventa/Events";
+import Events from "./Event/Events";
 import FeatureSection from "./FeatureSection/FeatureSection";
 
 const Home = () => {

@@ -8,6 +8,8 @@ import AddToFind from "../Pages/AddToFind/AddToFind";
 import PrivateRoute from "./PrivateRoute";
 import MyListings from "../Pages/MyLIstings/MyListings";
 import UpdateList from "../Pages/MyLIstings/UpdateList/UpdateList";
+import BrowseListing from "../Pages/BrowseListing/BrowseListing";
+import ListingDetails from "../Pages/BrowseListing/ListingDetails";
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +27,11 @@ export const router = createBrowserRouter([
       {
         path: "signup",
         Component: Singup,
+      },
+      {
+        path: "browse-listing",
+        loader: () => fetch("http://localhost:3000/roommate-listings"),
+        Component: BrowseListing,
       },
       {
         path: "find-rommate",
@@ -52,6 +59,17 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      {
+        path: "browse-listing-details/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/roommate-listings/${params.id}`),
+        element: (
+          <PrivateRoute>
+            <ListingDetails></ListingDetails>
+          </PrivateRoute>
+        ),
+      }
+
     ],
   },
   {

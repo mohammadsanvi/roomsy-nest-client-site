@@ -38,7 +38,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive ? " text-blue-500" : "text-black dark:text-white"
           }
-          to="/login"
+          to="/browse-listing"
         >
           Browse Listing
         </NavLink>
