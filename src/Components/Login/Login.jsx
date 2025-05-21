@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { Fade } from "react-awesome-reveal";
 import { Tooltip as ReactTooltip } from "react-tooltip";
@@ -10,6 +10,8 @@ import { AuthContext } from "../AuthContext/AuthContext";
 
 const Login = () => {
   const { setUser, signInWithGoogle, signIn } = useContext(AuthContext);
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -30,7 +32,7 @@ const Login = () => {
         icon: "success",
         draggable: true,
       });
-      navigate("/");
+      navigate(from, { replace: true });
     } catch (error) {
       setError(error.message);
       Swal.fire({
@@ -51,7 +53,7 @@ const Login = () => {
         icon: "success",
         draggable: true,
       });
-      navigate("/");
+    navigate(from, { replace: true });
     } catch (error) {
       Swal.fire({
         icon: "error",
@@ -68,7 +70,7 @@ const Login = () => {
         <title>Roomsy Nest | Login</title>
       </Helmet>
 
-       <img
+      <img
         src="https://i.ibb.co/GfMYTH8n/vecteezy-real-estate-agent-holding-key-against-transparent-background-55757481.png"
         alt="Agent"
         className="hidden lg:block absolute left-4 max-w-sm h-auto z-10 bg-left"
@@ -80,7 +82,6 @@ const Login = () => {
         className="hidden lg:block absolute right-4 max-w-sm h-auto z-10 bg-right"
         style={{ userSelect: "none", pointerEvents: "none" }}
       />
-
 
       <Fade cascade duration={600}>
         <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur p-8 rounded-xl shadow-2xl max-w-md w-full">
@@ -136,7 +137,9 @@ const Login = () => {
             className="w-full flex items-center justify-center gap-2 mb-4 py-3 rounded-md border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
           >
             <FcGoogle size={22} />
-            <span className="text-black dark:text-white">Continue with Google</span>
+            <span className="text-black dark:text-white">
+              Continue with Google
+            </span>
           </button>
 
           <ReactTooltip
@@ -150,6 +153,7 @@ const Login = () => {
             Don’t have an account?{" "}
             <Link
               to="/signup"
+               state={{ from: location.state?.from || '/' }}
               className="underline font-medium text-blue-600 dark:text-blue-400"
             >
               Register here

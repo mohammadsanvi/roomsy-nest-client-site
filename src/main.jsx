@@ -20,5 +20,5 @@ createRoot(document.getElementById('root')).render(
   </StrictMode>
       </AuthProvider>
      </ThemeProvider>
-//  </HelmetProvider>
+  </HelmetProvider>
 )

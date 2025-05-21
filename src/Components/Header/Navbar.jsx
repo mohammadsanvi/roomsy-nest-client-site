@@ -27,7 +27,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive ? " text-blue-500" : "text-black dark:text-white"
           }
-          to="/login"
+          to="/find-rommate"
         >
           Add to Find Roommate
         </NavLink>
@@ -93,7 +93,7 @@ const Navbar = () => {
         </div>
         <NavLink to="/" cla>
           <img
-            className="h-72"
+            className="md:h-72 h-40"
             src="https://i.ibb.co/LzPg2CnX/log.png"
             alt="logo"
           />
@@ -144,7 +144,7 @@ const Navbar = () => {
     className="w-10 h-10 rounded-full cursor-pointer border-black border dark:border-white"
     src={
       user.photoURL ||
-      "https://i.ibb.co/Y44FR6Gp/pngtree-casual-man-flat-design-avatar-profile-picture-vector-png-image-12593008.png"
+      "https://i.ibb.co/N6RDVVfx/56c75d13636b5830b34385f6df90ca43.jpg"
     }
     alt="profile"
   />

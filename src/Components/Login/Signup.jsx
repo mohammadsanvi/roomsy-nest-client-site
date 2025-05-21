@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../AuthContext/AuthContext";
@@ -12,7 +12,9 @@ const Signup = () => {
   const { createUser, setUser, signInWithGoogle } = useContext(AuthContext);
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const location = useLocation();
   const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
 
   const validatePassword = (e) => {
     const value = e.target.value;
@@ -62,10 +64,12 @@ const Signup = () => {
               Swal.fire({
                 title: "Signup Successfully Done!",
                 icon: "success",
+                timer: 1500,
+                showConfirmButton: false,
               });
               form.reset();
               setPassword("");
-              navigate("/");
+              navigate(from, { replace: true });
             });
         });
       })
@@ -83,8 +87,13 @@ const Signup = () => {
       .then((result) => {
         const user = result.user;
         setUser(user);
-        Swal.fire({ title: "Signup Successfully Done!", icon: "success" });
-        navigate("/");
+        Swal.fire({
+          title: "Signup Successfully Done!",
+          icon: "success",
+          timer: 1500,
+          showConfirmButton: false,
+        });
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         Swal.fire({ icon: "error", title: "Oops...", text: error.message });
@@ -106,7 +115,7 @@ const Signup = () => {
               className="w-full"
             />
           </div>
-          
+
           <div className="w-full md:w-1/2 p-8">
             <h2 className="text-3xl font-bold text-center mb-6 text-gray-800 dark:text-white">
               <Typewriter
@@ -140,7 +149,6 @@ const Signup = () => {
               <input
                 type="text"
                 name="photo"
-                required
                 placeholder="Photo URL"
                 className="w-full p-3 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
               />
@@ -171,7 +179,7 @@ const Signup = () => {
             <div className="mt-4">
               <button
                 onClick={handleGoogleLogin}
-                className="w-full flex items-center justify-center gap-2 p-3 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                className="w-full flex items-center dark:text-white text-black justify-center gap-2 p-3 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
               >
                 <FcGoogle size={22} /> Continue with Google
               </button>
