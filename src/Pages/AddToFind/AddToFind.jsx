@@ -4,9 +4,11 @@ import { AuthContext } from "../../Components/AuthContext/AuthContext";
 import { Helmet } from "react-helmet-async";
 import { Fade } from "react-awesome-reveal";
 import { Typewriter } from "react-simple-typewriter";
+import { useNavigate } from "react-router";
 
 const AddToFind = () => {
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,12 +21,39 @@ const AddToFind = () => {
       lifestyle: form.lifestyle.value,
       description: form.description.value,
       contact: form.contact.value,
+      number: form.number.value,
       availability: form.availability.value,
       userEmail: user?.email,
       userName: user?.displayName,
     };
 
-  
+    fetch("http://localhost:3000/roommate-listings", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(listing),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId || data.success) {
+          Swal.fire({
+            icon: "success",
+            title: "Roommate Listing Added Successfully!",
+            showConfirmButton: false,
+            timer: 2000,
+          });
+          form.reset();
+          navigate('/my-listing')
+        }
+      })
+      .catch((err) => {
+         Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: `${err}`,
+                footer: '<a href="/">Why do I have this issue?</a>',
+              });
+      });
+  };
 
   return (
     <div className="bg-cover bg-no-repeat bg-center min-h-screen flex items-center justify-center px-4 dark:text-white bg-white dark:bg-gray-900 text-gray-800 transition-all duration-300">
@@ -33,10 +62,14 @@ const AddToFind = () => {
       </Helmet>
 
       <div className="bg-[#f3f4f6] dark:bg-zinc-900/80 my-40 backdrop-blur-md rounded-3xl shadow-2xl w-full max-w-4xl p-8">
-        <Fade cascade damping={0.1} triggerOnce>
+        <Fade cascade damping={0.2} triggerOnce>
           <h2 className="text-3xl md:text-5xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-blue-500 p-5 to-red-500 mb-10">
             <Typewriter
-              words={["Add Roommate Listing","Explore More Listings","Discover Your Ideal Match"]}
+              words={[
+                "Add Roommate Listing",
+                "Explore More Listings",
+                "Discover Your Ideal Match",
+              ]}
               loop={false}
               cursor
               cursorStyle="|"
@@ -57,7 +90,7 @@ const AddToFind = () => {
               <input
                 type="text"
                 name="title"
-                placeholder="Title"
+                placeholder='e.g... "Looking for a roommate in NYC"'
                 required
                 className="input input-bordered w-full bg-white dark:bg-zinc-800"
               />
@@ -72,7 +105,7 @@ const AddToFind = () => {
                 name="location"
                 placeholder="Location"
                 required
-                className="input input-bordered w-full bg-white dark:bg-zinc-800"
+                className="input input-bordered w-full h-12 bg-white dark:bg-zinc-800"
               />
             </div>
 
@@ -115,7 +148,19 @@ const AddToFind = () => {
               <input
                 type="text"
                 name="lifestyle"
-                placeholder="e.g., Pets, Smoking"
+                placeholder="Pets, Smoking, Night Owl, etc"
+                className="input input-bordered w-full bg-white dark:bg-zinc-800"
+              />
+            </div>
+
+            <div className="form-control space-y-1">
+              <label className="label">
+                <span className="label-text dark:text-white">Concuct No</span>
+              </label>
+              <input
+                type="number"
+                name="number"
+                placeholder="Mobile Number"
                 className="input input-bordered w-full bg-white dark:bg-zinc-800"
               />
             </div>
@@ -189,7 +234,9 @@ const AddToFind = () => {
             >
               Add Listing
             </button>
-          </form>
+                  </form>
+                  
+
         </Fade>
       </div>
     </div>

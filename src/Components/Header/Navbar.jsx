@@ -6,6 +6,7 @@ import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 import { FiSun } from "react-icons/fi";
 import { AuthContext } from "../AuthContext/AuthContext";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
   const { logOut, user } = useContext(AuthContext);
@@ -47,7 +48,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive ? " text-blue-500" : "text-black dark:text-white"
           }
-          to="/login"
+          to="/my-listing"
         >
           My Listings
         </NavLink>
@@ -56,11 +57,27 @@ const Navbar = () => {
   );
 
   const hanldeLogout = () => {
-    console.log("logout procecing....");
-    logOut();
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be logget out",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        logOut();
+        Swal.fire({
+          title: "Deleted!",
+          text: "Logut Succesfully",
+          icon: "success",
+        });
+      }
+    });
   };
   return (
-    <div className="navbar shadow-sm h-10 fixed dark:shadow-white px-8 md:px-12 lg:px-32 top-0 left-0 w-full z-50 bg-gray-100 text-black dark:bg-gray-900 dark:text-white">
+    <div className="navbar shadow-sm h-10 fixed border-none dark:shadow-white px-8 md:px-12 lg:px-32 top-0 left-0 w-full z-50 bg-gray-100 text-black dark:bg-gray-900 dark:text-white">
       <div className="navbar-start">
         <div className="dropdown">
           <div
@@ -140,18 +157,18 @@ const Navbar = () => {
         {user ? (
           <>
             <div className="relative group inline-block">
-  <img
-    className="w-10 h-10 rounded-full cursor-pointer border-black border dark:border-white"
-    src={
-      user.photoURL ||
-      "https://i.ibb.co/N6RDVVfx/56c75d13636b5830b34385f6df90ca43.jpg"
-    }
-    alt="profile"
-  />
-  <div className="absolute mb-2 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition bg-white bg-opacity-80 text-black dark:bg-gray-700 dark:text-white text-sm px-2 py-1 rounded shadow-lg z-10 whitespace-nowrap">
+              <img
+                className="w-10 h-10 rounded-full cursor-pointer border-black border dark:border-white"
+                src={
+                  user.photoURL ||
+                  "https://i.ibb.co/N6RDVVfx/56c75d13636b5830b34385f6df90ca43.jpg"
+                }
+                alt="profile"
+              />
+              <div className="absolute mb-2 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition bg-white bg-opacity-80 text-black dark:bg-gray-700 dark:text-white text-sm px-2 py-1 rounded shadow-lg z-10 whitespace-nowrap">
                 {user.displayName}
-  </div>
-</div>
+              </div>
+            </div>
 
             <button
               className="btn hover:shadow-lg max-w-16 dark:btn-primary btn-active "

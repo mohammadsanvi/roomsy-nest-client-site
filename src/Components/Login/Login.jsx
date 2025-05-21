@@ -65,29 +65,23 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-cyan-50 dark:bg-gray-900 flex items-center justify-center px-4">
+    <div className="min-h-screen my-10 bg-cyan-50 dark:bg-gray-900 flex items-center justify-center px-4">
       <Helmet>
         <title>Roomsy Nest | Login</title>
       </Helmet>
-
+      
       <img
         src="https://i.ibb.co/GfMYTH8n/vecteezy-real-estate-agent-holding-key-against-transparent-background-55757481.png"
         alt="Agent"
-        className="hidden lg:block absolute left-4 max-w-sm h-auto z-10 bg-left"
-        style={{ userSelect: "none", pointerEvents: "none" }}
-      />
-      <img
-        src="https://i.ibb.co/35LddL04/vecteezy-room-3d-rendering-icon-illustration-28574495.png"
-        alt="Room"
-        className="hidden lg:block absolute right-4 max-w-sm h-auto z-10 bg-right"
+        className="hidden lg:block absolute left-4 max-w-lg h-auto z-10 bg-left"
         style={{ userSelect: "none", pointerEvents: "none" }}
       />
 
-      <Fade cascade duration={600}>
-        <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur p-8 rounded-xl shadow-2xl max-w-md w-full">
+      <Fade direction="left" cascade duration={300}>
+        <div className="bg-white/90 py-10 dark:bg-gray-800/90 backdrop-blur p-8 rounded-xl shadow-2xl max-w-lg w-full">
           <h2 className="text-3xl font-bold mb-6 text-center text-black dark:text-white">
             <Typewriter
-              words={["Welcome Back!", "Please Login to Continue"]}
+              words={["Welcome Back!", "Please Login", "to Continue"]}
               loop={0}
               cursor
               cursorStyle="|"
@@ -124,7 +118,7 @@ const Login = () => {
             />
             <button
               type="submit"
-              className="w-full mb-4 py-3 rounded-md bg-blue-600 hover:bg-blue-700 text-white font-semibold transition-colors"
+              className="w-full mb-4 py-3 rounded-md hover:scale-[1.02] transition-transform duration-200 bg-blue-600 hover:bg-blue-700 text-white font-semibold"
             >
               Login
             </button>
@@ -134,7 +128,7 @@ const Login = () => {
             type="button"
             onClick={handleGoogleLogin}
             data-tooltip-id="google-tooltip"
-            className="w-full flex items-center justify-center gap-2 mb-4 py-3 rounded-md border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+            className="w-full flex items-center justify-center gap-2 mb-4 py-3 rounded-md border border-gray-300 dark:border-gray-600 hover:scale-[1.02] transition-transform duration-200 hover:bg-gray-100 dark:hover:bg-gray-700"
           >
             <FcGoogle size={22} />
             <span className="text-black dark:text-white">

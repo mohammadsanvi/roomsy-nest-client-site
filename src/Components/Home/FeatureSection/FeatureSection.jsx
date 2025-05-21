@@ -28,7 +28,7 @@ const FeatureSection = () => {
       <div className="max-w-7xl mx-auto text-center">
         <Fade cascade>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Find The Best Rental <span className="text-orange-500">For You</span>
+            Find The Best Rental <span className="text-blue-500">For You</span>
           </h2>
           <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-12">
             Discover smarter ways to search, compare, and rent with confidence.
@@ -47,7 +47,7 @@ const FeatureSection = () => {
                   <p className="text-gray-600 dark:text-gray-300 mb-4">
                     {feature.desc}
                   </p>
-                  <button className="mt-auto px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition">
+                  <button className="mt-auto px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
                     {feature.button}
                   </button>
                 </div>

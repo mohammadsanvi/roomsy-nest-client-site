@@ -106,7 +106,7 @@ const Signup = () => {
         <title>Roomsy Nest | Signup</title>
       </Helmet>
 
-      <Fade direction="up" cascade duration={500}>
+      <Fade direction="right" cascade duration={200}>
         <div className="bg-white dark:bg-gray-800 rounded-xl shadow-xl flex w-full max-w-5xl overflow-hidden">
           <div className="hidden md:flex w-1/2 bg-gradient-to-br bg-white to-blue-600 items-center justify-center">
             <img
@@ -170,7 +170,7 @@ const Signup = () => {
               />
               <button
                 type="submit"
-                className="w-full p-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium"
+                className="w-full p-3 bg-blue-600 hover:bg-blue-700 hover:scale-[1.02] transition-transform duration-200 text-white rounded-md font-medium"
               >
                 Create Account
               </button>
@@ -179,7 +179,7 @@ const Signup = () => {
             <div className="mt-4">
               <button
                 onClick={handleGoogleLogin}
-                className="w-full flex items-center dark:text-white text-black justify-center gap-2 p-3 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                className="w-full flex items-center dark:text-white text-black justify-center gap-2 p-3 border border-gray-300 hover:scale-[1.02] transition-transform duration-200 dark:border-gray-600 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <FcGoogle size={22} /> Continue with Google
               </button>

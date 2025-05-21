@@ -1,11 +1,15 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
+import { Fade } from "react-awesome-reveal";
 
 const Footer = () => {
   return (
     <footer className="bg-gray-100 dark:bg-gray-900 md:p-10 p-4 text-black dark:text-white px-6 py-10">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+
+       <Fade delay={100} cascade damping={0.3}>
+      <div>
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
         
         {/* Logo + About */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left">
@@ -93,6 +97,9 @@ const Footer = () => {
       <div className="mt-10 text-center text-xs text-gray-600 dark:text-gray-400">
         © {new Date().getFullYear()} RoomsyNest — All rights reserved.
       </div>
+      </div>
+</Fade>
+
     </footer>
   );
 };

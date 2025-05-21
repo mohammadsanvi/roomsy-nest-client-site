@@ -3,15 +3,15 @@ import { Link } from "react-router";
 
 const Error = () => {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center p-6 bg-white dark:bg-red-100/10 border dark:border-red-700 rounded-xl shadow-md text-center">
-      <img
-        src="https://i.ibb.co/4RyLhXhp/original-7a69eb5b87401ce59325c3291535aebc.gif"
+    <div className="flex min-h-screen flex-col items-center justify-center p-6 bg-white rounded-xl shadow-md text-center">
+      <div className="flex flex-col space-y-4 justify-center items-center p-4">
+         <img
+        src="https://i.ibb.co/gFckXSty/a8121abee959e18cbad25ad4046f76d8.gif"
         alt="Error"
-        className="h-52 mb-4"
+        className="md:max-w-lg max-w-sm mb-4"
       />
-      <h2 className="text-xl font-semibold text-red-600 dark:text-red-400 mb-2">
-        Oops! Something went wrong
-      </h2>
+
+      <h2 className="text-xl font-semibold mb-2">Oops! Something went wrong</h2>
       <p className="text-gray-700 dark:text-gray-300 mb-4 max-w-md">
         We couldn't process your request at the moment. Please try again later
         or go back to the homepage.
@@ -29,6 +29,7 @@ const Error = () => {
           </button>
         </Link>
       </div>
+     </div>
     </div>
   );
 };
