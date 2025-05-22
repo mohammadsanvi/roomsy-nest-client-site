@@ -65,11 +65,10 @@ export const router = createBrowserRouter([
           fetch(`http://localhost:3000/roommate-listings/${params.id}`),
         element: (
           <PrivateRoute>
-            <ListingDetails></ListingDetails>
+            <ListingDetails />
           </PrivateRoute>
         ),
-      }
-
+      },
     ],
   },
   {

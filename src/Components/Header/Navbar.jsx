@@ -64,13 +64,13 @@ const Navbar = () => {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
+      confirmButtonText: "Logout",
     }).then((result) => {
       if (result.isConfirmed) {
         logOut();
         Swal.fire({
-          title: "Deleted!",
-          text: "Logut Succesfully",
+          title: "LogOut!",
+          text: "Succesfully",
           icon: "success",
         });
       }
@@ -171,7 +171,7 @@ const Navbar = () => {
             </div>
 
             <button
-              className="btn hover:shadow-lg max-w-16 dark:btn-primary btn-active "
+              className="btn hover:shadow-lg max-w-16 hover:scale-[1.02] transition-transform duration-200 border-none bg-gradient-to-r from-purple-600 via-blue-500 to-purple-400"
               onClick={hanldeLogout}
             >
               Logout
@@ -180,16 +180,18 @@ const Navbar = () => {
         ) : (
           <>
             {" "}
-            <button className="btn bg-white hover:border-blue-500 text-black shadow-none border border-black dark:border dark:border-white dark:bg-base-200 dark:text-white">
-              <Link className="hover:text-blue-500" to="/login">
+              <div className="flex justify-center items-center gap-4">
+                 <button className="btn hover:shadow-lg max-w-14 hover:scale-[1.02] transition-transform duration-200 border-none bg-gradient-to-r from-purple-600 via-blue-500 to-purple-400 text-sm">
+              <Link to="/login">
                 Login
               </Link>
             </button>
-            <button className="btn bg-white text-black hover:border-blue-500 shadow-none border border-black dark:border dark:border-white dark:bg-base-200 dark:text-white">
-              <Link className="hover:text-blue-500" to="/signup">
+            <button className="btn hover:shadow-lg max-w-14 hover:scale-[1.02] transition-transform duration-200 border-none bg-gradient-to-r from-purple-600 via-blue-500 to-purple-400">
+              <Link to="/signup">
                 Singup
               </Link>
             </button>
+           </div>
           </>
         )}
       </div>

@@ -2,11 +2,14 @@ import React from 'react';
 import { useLoaderData } from 'react-router';
 import ListingCard from './ListingCard';
 import { Typewriter } from 'react-simple-typewriter';
+import { Helmet } from 'react-helmet-async';
 
 const BrowseListing = () => {
     const allListing = useLoaderData()
     console.log(allListing)
     return (
+        <>
+        <Helmet><title>Roomsy Nest | Browse Listing</title></Helmet>
         <div className='px-10 py-20'>
             <h2 className="text-3xl font-bold my-10 text-center text-black dark:text-white">
                         <Typewriter
@@ -24,7 +27,8 @@ const BrowseListing = () => {
                 allListing.map(list => <ListingCard list={list}></ListingCard>)
             }
             </div>
-        </div>
+            </div>
+            </>
     );
 };
 

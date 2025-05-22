@@ -65,17 +65,10 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen my-10 bg-cyan-50 dark:bg-gray-900 flex items-center justify-center px-4">
+    <div className="min-h-screen my-10 bg-white dark:bg-gray-900 flex items-center justify-center px-4">
       <Helmet>
         <title>Roomsy Nest | Login</title>
       </Helmet>
-      
-      <img
-        src="https://i.ibb.co/GfMYTH8n/vecteezy-real-estate-agent-holding-key-against-transparent-background-55757481.png"
-        alt="Agent"
-        className="hidden lg:block absolute left-4 max-w-lg h-auto z-10 bg-left"
-        style={{ userSelect: "none", pointerEvents: "none" }}
-      />
 
       <Fade direction="left" cascade duration={300}>
         <div className="bg-white/90 py-10 dark:bg-gray-800/90 backdrop-blur p-8 rounded-xl shadow-2xl max-w-lg w-full">

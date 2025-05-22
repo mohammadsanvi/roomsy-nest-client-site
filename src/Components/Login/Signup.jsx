@@ -106,14 +106,14 @@ const Signup = () => {
         <title>Roomsy Nest | Signup</title>
       </Helmet>
 
-      <Fade direction="right" cascade duration={200}>
+      <Fade direction="right" cascade duration={300}>
         <div className="bg-white dark:bg-gray-800 rounded-xl shadow-xl flex w-full max-w-5xl overflow-hidden">
           <div className="hidden md:flex w-1/2 bg-gradient-to-br bg-white to-blue-600 items-center justify-center">
             <img
               src="https://i.ibb.co/YVRhWqr/06a4fa10ea2f784f221b770ff45dd096-removebg-preview.png"
               alt="Signup Illustration"
               className="w-full"
-            />
+              />
           </div>
 
           <div className="w-full md:w-1/2 p-8">

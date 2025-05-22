@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Components/AuthContext/AuthContext";
 import Swal from "sweetalert2";
 import { Link} from "react-router";
+import { Helmet } from "react-helmet-async";
 
 const MyListings = () => {
   const { user } = useContext(AuthContext);
@@ -53,6 +54,9 @@ const MyListings = () => {
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
+         <Helmet>
+            <title>Roomsy Nest | My Listings</title>
+          </Helmet>
       <h1 className="text-3xl md:text-4xl font-bold text-center mb-8 text-zinc-800 dark:text-zinc-100">
         My Roommate Listings
       </h1>

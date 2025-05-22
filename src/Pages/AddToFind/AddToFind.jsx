@@ -9,6 +9,7 @@ import { useNavigate } from "react-router";
 const AddToFind = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate()
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,6 +26,7 @@ const AddToFind = () => {
       availability: form.availability.value,
       userEmail: user?.email,
       userName: user?.displayName,
+      likes: 0
     };
 
     fetch("http://localhost:3000/roommate-listings", {

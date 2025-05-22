@@ -51,7 +51,7 @@ const Footer = () => {
             </li>
             <li>
               <NavLink
-                to="/login"
+                to="/find-rommate"
                 className={({ isActive }) =>
                   isActive ? "text-blue-500" : "hover:text-blue-400"
                 }
@@ -61,8 +61,8 @@ const Footer = () => {
             </li>
             <li>
               <NavLink
-                to="/login"
-                className={({ isActive }) =>
+                to="/browse-listing"
+                className={ ({ isActive }) =>
                   isActive ? "text-blue-500" : "hover:text-blue-400"
                 }
               >
@@ -71,7 +71,7 @@ const Footer = () => {
             </li>
             <li>
               <NavLink
-                to="/login"
+                to="/my-listing"
                 className={({ isActive }) =>
                   isActive ? "text-blue-500" : "hover:text-blue-400"
                 }

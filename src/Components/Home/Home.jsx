@@ -7,7 +7,12 @@ import FeatureSection from "./FeatureSection/FeatureSection";
 const Home = () => {
   return (
     <>
+    <Helmet>
+      <title>Roomsy Nest | Home</title>
+    </Helmet>
+    
       <Banner></Banner>
+
       <Events></Events>
       <FeatureSection></FeatureSection>
     </>
