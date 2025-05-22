@@ -30,7 +30,8 @@ export const router = createBrowserRouter([
       },
       {
         path: "browse-listing",
-        loader: () => fetch("http://localhost:3000/roommate-listings"),
+        loader: () =>
+          fetch("https://roomsy-nest-server-site.vercel.app/roommate-listings"),
         Component: BrowseListing,
       },
       {
@@ -52,7 +53,9 @@ export const router = createBrowserRouter([
       {
         path: "my-listing/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/roommate-listings/${params.id}`),
+          fetch(
+            `https://roomsy-nest-server-site.vercel.app/roommate-listings/${params.id}`
+          ),
         element: (
           <PrivateRoute>
             <UpdateList />
@@ -62,7 +65,9 @@ export const router = createBrowserRouter([
       {
         path: "browse-listing-details/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/roommate-listings/${params.id}`),
+          fetch(
+            `https://roomsy-nest-server-site.vercel.app/roommate-listings/${params.id}`
+          ),
         element: (
           <PrivateRoute>
             <ListingDetails />

@@ -30,13 +30,16 @@ const UpdateList = () => {
     };
 
     try {
-      const res = await fetch(`http://localhost:3000/roommate-listings/${list._id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(updatedListing)
-      });
+      const res = await fetch(
+        `https://roomsy-nest-server-site.vercel.app/roommate-listings/${list._id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(updatedListing),
+        }
+      );
 
       const data = await res.json();
 

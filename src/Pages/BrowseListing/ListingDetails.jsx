@@ -59,6 +59,17 @@ const ListingDetails = () => {
 
   return (
     <div className="min-h-screen bg-white dark:bg-zinc-950 my-20 px-4 pt-10 pb-20">
+      {/* Back to Listings Button */}
+      <div className="mb-6 max-w-3xl mx-auto">
+        <Link
+          to="/browse-listing"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500 to-indigo-500 text-white rounded-xl shadow-md hover:scale-105 transition-all duration-300 w-fit"
+        >
+          <FaArrowLeft className="pointer-events-none" />
+          Back to Listings
+        </Link>
+      </div>
+
       {/* Details Card */}
       <Fade triggerOnce cascade damping={0.08}>
         <div className="w-full max-w-3xl mx-auto bg-white dark:bg-zinc-900 shadow-2xl rounded-3xl p-8 border border-gray-200 dark:border-zinc-700 transition-all">
@@ -72,54 +83,24 @@ const ListingDetails = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 text-zinc-700 dark:text-zinc-300 text-sm sm:text-base">
-            <InfoItem
-              icon={<FaUser className="text-purple-500" />}
-              label="Posted By"
-              value={info.userName}
-            />
-            <InfoItem
-              icon={<FaEnvelope className="text-blue-500" />}
-              label="Email"
-              value={info.userEmail}
-            />
-            <InfoItem
-              icon={<FaMapMarkerAlt className="text-rose-500" />}
-              label="Location"
-              value={info.location}
-            />
-            <InfoItem
-              icon={<FaMoneyBillWave className="text-green-500" />}
-              label="Rent"
-              value={`৳${info.rent}`}
-            />
-            <InfoItem
-              icon={<FaDoorOpen className="text-yellow-500" />}
-              label="Room Type"
-              value={info.roomType}
-            />
-            <InfoItem
-              icon={<FaListUl className="text-pink-500" />}
-              label="Lifestyle"
-              value={info.lifestyle}
-            />
+            <InfoItem icon={<FaUser className="text-purple-500" />} label="Posted By" value={info.userName} />
+            <InfoItem icon={<FaEnvelope className="text-blue-500" />} label="Email" value={info.userEmail} />
+            <InfoItem icon={<FaMapMarkerAlt className="text-rose-500" />} label="Location" value={info.location} />
+            <InfoItem icon={<FaMoneyBillWave className="text-green-500" />} label="Rent" value={`৳${info.rent}`} />
+            <InfoItem icon={<FaDoorOpen className="text-yellow-500" />} label="Room Type" value={info.roomType} />
+            <InfoItem icon={<FaListUl className="text-pink-500" />} label="Lifestyle" value={info.lifestyle} />
             <InfoItem
               icon={
                 <FaCheckCircle
                   className={
-                    info.availability === "Available"
-                      ? "text-green-500"
-                      : "text-red-500"
+                    info.availability === "Available" ? "text-green-500" : "text-red-500"
                   }
                 />
               }
               label="Availability"
               value={info.availability}
             />
-            <InfoItem
-              icon={<FaHome className="text-indigo-500" />}
-              label="Description"
-              value={info.description}
-            />
+            <InfoItem icon={<FaHome className="text-indigo-500" />} label="Description" value={info.description} />
             <InfoItem
               icon={<FaFacebook className="text-blue-600" />}
               label="Facebook Page"
@@ -136,7 +117,7 @@ const ListingDetails = () => {
             />
           </div>
 
-          {/* Like & Contact */}
+          {/* Like & Contact Section */}
           <div className="mt-10 flex flex-col items-center space-y-4">
             <button
               onClick={handleLike}
@@ -146,22 +127,14 @@ const ListingDetails = () => {
                 liked
                   ? "bg-blue-500 text-white"
                   : "bg-blue-100 text-blue-600 hover:bg-blue-200 dark:bg-blue-900/20 dark:hover:bg-blue-900/40"
-              } ${
-                isOwnPost ? "cursor-not-allowed opacity-60" : "cursor-pointer"
-              }`}
+              } ${isOwnPost ? "cursor-not-allowed opacity-60" : "cursor-pointer"}`}
             >
               <FaThumbsUp />
-              <span className="inline-block w-12 text-center">
-                {liked ? "Liked" : "Like"}
-              </span>
+              <span className="inline-block w-12 text-center">{liked ? "Liked" : "Like"}</span>
             </button>
 
             {isOwnPost && (
-              <Tooltip
-                id="likeTooltip"
-                content="You can't like your own post"
-                place="top"
-              />
+              <Tooltip id="likeTooltip" content="You can't like your own post" place="top" />
             )}
 
             {(liked || showContact) && info.number && (

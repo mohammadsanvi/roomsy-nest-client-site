@@ -54,7 +54,7 @@ const Signup = () => {
             lastSignInTime: user.metadata?.lastSignInTime,
           };
 
-          fetch("http://localhost:3000/users", {
+          fetch("https://roomsy-nest-server-site.vercel.app/users", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(userProfile),

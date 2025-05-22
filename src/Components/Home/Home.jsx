@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import Banner from "./Banner";
 import Events from "./Event/Events";
 import FeatureSection from "./FeatureSection/FeatureSection";
+import FeaturedRoommatePost from "./FeaturedRoommatePost/FeaturedRoommatePost";
 
 const Home = () => {
   return (
@@ -12,7 +13,7 @@ const Home = () => {
     </Helmet>
     
       <Banner></Banner>
-
+      <FeaturedRoommatePost></FeaturedRoommatePost>
       <Events></Events>
       <FeatureSection></FeatureSection>
     </>

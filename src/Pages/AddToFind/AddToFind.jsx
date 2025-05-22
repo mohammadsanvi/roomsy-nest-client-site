@@ -29,7 +29,7 @@ const AddToFind = () => {
       likes: 0
     };
 
-    fetch("http://localhost:3000/roommate-listings", {
+    fetch("https://roomsy-nest-server-site.vercel.app/roommate-listings", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(listing),
@@ -44,16 +44,16 @@ const AddToFind = () => {
             timer: 2000,
           });
           form.reset();
-          navigate('/my-listing')
+          navigate("/my-listing");
         }
       })
       .catch((err) => {
-         Swal.fire({
-                icon: "error",
-                title: "Oops...",
-                text: `${err}`,
-                footer: '<a href="/">Why do I have this issue?</a>',
-              });
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `${err}`,
+          footer: '<a href="/">Why do I have this issue?</a>',
+        });
       });
   };
 

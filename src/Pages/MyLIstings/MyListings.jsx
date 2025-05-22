@@ -11,7 +11,9 @@ const MyListings = () => {
   useEffect(() => {
     const fetchListings = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/my-listings?email=${user?.email}`);
+        const res = await fetch(
+          `https://roomsy-nest-server-site.vercel.app/my-listings?email=${user?.email}`
+        );
         const data = await res.json();
         setListings(data);
       } catch (err) {
@@ -30,17 +32,24 @@ const MyListings = () => {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!"
+      confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/roommate-listings/${id}`, {
-          method: 'DELETE',
-        })
-          .then(res => res.json())
-          .then(data => {
+        fetch(
+          `https://roomsy-nest-server-site.vercel.app/roommate-listings/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
+          .then((res) => res.json())
+          .then((data) => {
             if (data?.message) {
-              Swal.fire("Deleted!", "Your listing has been deleted.", "success");
-              setListings(prev => prev.filter(item => item._id !== id));
+              Swal.fire(
+                "Deleted!",
+                "Your listing has been deleted.",
+                "success"
+              );
+              setListings((prev) => prev.filter((item) => item._id !== id));
             } else {
               Swal.fire("Error!", "Something went wrong!", "error");
             }
