@@ -4,6 +4,7 @@ import Banner from "./Banner";
 import Events from "./Event/Events";
 import FeatureSection from "./FeatureSection/FeatureSection";
 import FeaturedRoommatePost from "./FeaturedRoommatePost/FeaturedRoommatePost";
+import AboutRoomsy from "./AboutRoomsy";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
     
       <Banner></Banner>
       <FeaturedRoommatePost></FeaturedRoommatePost>
+      <AboutRoomsy></AboutRoomsy>
       <Events></Events>
       <FeatureSection></FeatureSection>
     </>

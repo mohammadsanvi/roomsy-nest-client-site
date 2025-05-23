@@ -12,7 +12,7 @@ const Error = () => {
       />
 
       <h2 className="text-xl font-semibold mb-2">Oops! Something went wrong</h2>
-      <p className="text-gray-700 dark:text-gray-300 mb-4 max-w-md">
+      <p className="text-black mb-4 max-w-md">
         We couldn't process your request at the moment. Please try again later
         or go back to the homepage.
       </p>

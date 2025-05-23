@@ -65,13 +65,21 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen my-10 bg-white dark:bg-gray-900 flex items-center justify-center px-4">
+    <div className="py-10 my-20 bg-white dark:bg-gray-900 flex items-center justify-center px-4">
       <Helmet>
         <title>Roomsy Nest | Login</title>
       </Helmet>
 
       <Fade direction="left" cascade duration={300}>
-        <div className="bg-white/90 py-10 dark:bg-gray-800/90 backdrop-blur p-8 rounded-xl shadow-2xl max-w-lg w-full">
+         <div className="bg-gray-100 dark:bg-gray-800 shadow-2xl rounded-xl shadow-xl flex w-full max-w-5xl overflow-hidden">
+          <div className="hidden md:flex w-1/2 dark:bg-gray-800/90 bg-gradient-to-br bg-gray-100 to-blue-600 items-center justify-center">
+            <img
+              src="https://i.ibb.co/SXGZs7tQ/174a848797c353a481b94c11e76c48e7-removebg-preview.png"
+              alt="Signup Illustration"
+              className="w-full"
+              />
+          </div>
+        <div className="bg-gray-100 py-10 dark:bg-gray-800/90 backdrop-blur p-8 rounded-xl max-w-lg w-full">
           <h2 className="text-3xl font-bold mb-6 text-center text-black dark:text-white">
             <Typewriter
               words={["Welcome Back!", "Please Login", "to Continue"]}
@@ -146,6 +154,7 @@ const Login = () => {
               Register here
             </Link>
           </p>
+        </div>
         </div>
       </Fade>
     </div>

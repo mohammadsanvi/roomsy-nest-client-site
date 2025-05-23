@@ -6,7 +6,6 @@ export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState("light");
 
   useEffect(() => {
-    // ডিফল্ট থিম হিসেবে localStorage থেকে নিয়ে আসো
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) setTheme(savedTheme);
   }, []);
@@ -32,5 +31,4 @@ export const ThemeProvider = ({ children }) => {
   );
 };
 
-// Custom hook ব্যবহার করে সহজে Context access করতে পারবে
 export const useThemeToggle = () => useContext(ThemeContext);

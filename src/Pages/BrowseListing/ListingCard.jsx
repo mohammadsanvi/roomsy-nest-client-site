@@ -4,21 +4,25 @@ import { FaMapMarkerAlt, FaUser, FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const ListingCard = ({ list }) => {
-  const availabilityColor =
-    list.availability === "Available" ? "text-green-500" : "text-red-500";
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="rounded-2xl shadow-xl dark:bg-zinc-800 bg-white p-6 space-y-3 transition-all border border-gray-200 dark:border-zinc-700 hover:shadow-2xl"
+      className="rounded-2xl shadow-xl dark:bg-zinc-800 bg-white p-6 space-y-3 border border-gray-200 dark:border-zinc-700 hover:shadow-2xl hover:scale-[1.02] transition-all"
     >
+
       <div className="flex items-center justify-between">
         <h2 className="text-xl font-bold text-gray-800 dark:text-white">
           {list.title}
         </h2>
-        <span className={`text-sm font-semibold ${availabilityColor}`}>
+        <span
+          className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
+            list.availability === "Available"
+              ? "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400"
+              : "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400"
+          }`}
+        >
           {list.availability}
         </span>
       </div>

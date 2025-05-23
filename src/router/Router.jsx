@@ -10,6 +10,7 @@ import MyListings from "../Pages/MyLIstings/MyListings";
 import UpdateList from "../Pages/MyLIstings/UpdateList/UpdateList";
 import BrowseListing from "../Pages/BrowseListing/BrowseListing";
 import ListingDetails from "../Pages/BrowseListing/ListingDetails";
+import LoadingSpinner from "../Components/LoadingSpinner/LoadingSpinner";
 
 export const router = createBrowserRouter([
   {
@@ -32,10 +33,12 @@ export const router = createBrowserRouter([
         path: "browse-listing",
         loader: () =>
           fetch("https://roomsy-nest-server-site.vercel.app/roommate-listings"),
+         hasErrorBoundary:<LoadingSpinner></LoadingSpinner>,
         Component: BrowseListing,
       },
       {
         path: "find-rommate",
+         hasErrorBoundary:<LoadingSpinner></LoadingSpinner>,
         element: (
           <PrivateRoute>
             <AddToFind></AddToFind>
@@ -44,6 +47,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "my-listing",
+         hasErrorBoundary:<LoadingSpinner></LoadingSpinner>,
         element: (
           <PrivateRoute>
             <MyListings></MyListings>
@@ -52,6 +56,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "my-listing/:id",
+         hasErrorBoundary:<LoadingSpinner></LoadingSpinner>,
         loader: ({ params }) =>
           fetch(
             `https://roomsy-nest-server-site.vercel.app/roommate-listings/${params.id}`
@@ -64,6 +69,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "browse-listing-details/:id",
+         hasErrorBoundary:<LoadingSpinner></LoadingSpinner>,
         loader: ({ params }) =>
           fetch(
             `https://roomsy-nest-server-site.vercel.app/roommate-listings/${params.id}`

@@ -1,5 +1,6 @@
 import { Slide } from 'react-awesome-reveal';
 import EventCard from './EventCard';
+
 const events = [
   {
     title: 'Ice Cream Truck',

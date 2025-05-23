@@ -1,35 +1,53 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLoaderData } from 'react-router';
 import ListingCard from './ListingCard';
 import { Typewriter } from 'react-simple-typewriter';
 import { Helmet } from 'react-helmet-async';
+import LoadingSpinner from '../../Components/LoadingSpinner/LoadingSpinner';
 
 const BrowseListing = () => {
-    const allListing = useLoaderData()
-    console.log(allListing)
-    return (
-        <>
-        <Helmet><title>Roomsy Nest | Browse Listing</title></Helmet>
-        <div className='px-10 py-20'>
-            <h2 className="text-3xl font-bold my-10 text-center text-black dark:text-white">
-                        <Typewriter
-                          words={["Browse All Listing!", "Find Your Pertner And See More", "Like Your Choice List"]}
-                          loop={0}
-                          cursor
-                          cursorStyle="|"
-                          typeSpeed={70}
-                          deleteSpeed={50}
-                          delaySpeed={1500}
-                        />
-                      </h2>
-            <div className='grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3'>
-                {
-                allListing.map(list => <ListingCard list={list}></ListingCard>)
-            }
-            </div>
-            </div>
-            </>
-    );
+  const loadedData = useLoaderData();
+  const [allListing, setAllListing] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (loadedData) {
+      setAllListing(loadedData);
+      setLoading(false);
+    }
+  }, [loadedData]);
+
+  return (
+    <>
+      <Helmet>
+        <title>Roomsy Nest | Browse Listing</title>
+      </Helmet>
+
+      <div className='px-10 py-20'>
+        <h2 className="text-3xl font-bold my-10 text-center text-black dark:text-white">
+          <Typewriter
+            words={["Browse All Listing!", "Find Your Partner And See More", "Like Your Choice List"]}
+            loop={0}
+            cursor
+            cursorStyle="|"
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1500}
+          />
+        </h2>
+
+        {loading ? (
+          <LoadingSpinner />
+        ) : (
+          <div className='grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3'>
+            {allListing.map((list) => (
+              <ListingCard key={list._id} list={list} />
+            ))}
+          </div>
+        )}
+      </div>
+    </>
+  );
 };
 
 export default BrowseListing;
