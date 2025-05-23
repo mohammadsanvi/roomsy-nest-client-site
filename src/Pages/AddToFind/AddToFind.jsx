@@ -141,6 +141,23 @@ const AddToFind = () => {
               </select>
             </div>
 
+              <div className="form-control space-y-1">
+              <label className="label">
+                <span className="label-text dark:text-white">Lifestyle Preferences</span>
+              </label>
+              <select
+                name="roomType"
+                required
+                className="select select-bordered w-full bg-white dark:bg-zinc-800"
+              >
+                <option disabled selected>
+                  Choose Room Type
+                </option>
+                <option>Single</option>
+                <option>Shared</option>
+              </select>
+            </div>
+
             <div className="form-control space-y-1">
               <label className="label">
                 <span className="label-text dark:text-white">
