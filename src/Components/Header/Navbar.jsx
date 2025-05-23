@@ -158,10 +158,10 @@ const Navbar = () => {
           <>
             <div className="relative group inline-block">
               <img
-                className="w-10 h-10 rounded-full cursor-pointer border-black border dark:border-white"
+                className="w-10 h-10 rounded-full cursor-pointer"
                 src={
                   user.photoURL ||
-                  "https://i.ibb.co/N6RDVVfx/56c75d13636b5830b34385f6df90ca43.jpg"
+                  "https://i.ibb.co/dw3R6bnZ/d37b020e87945ad7f245e48df752ed03-removebg-preview.png"
                 }
                 alt="profile"
               />

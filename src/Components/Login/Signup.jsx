@@ -39,6 +39,15 @@ const Signup = () => {
     const email = form.email.value;
     const password = form.password.value;
 
+    if (error) {
+    Swal.fire({
+      icon: "error",
+      title: "Invalid Password",
+      text: error,
+    });
+    return;
+  }
+
     createUser(email, password)
       .then((result) => {
         const user = result.user;
