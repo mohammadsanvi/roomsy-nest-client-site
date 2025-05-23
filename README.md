@@ -2,7 +2,7 @@
 
 Roomsynest is a modern roommate listing web application built using **React**. It helps users find roommates and manage listings easily with a smooth and interactive UI.
 
-🔗 **Live Client URL:** [https://roomsy-nest.web.appi](https://roomsy-nest.web.app)
+## **🔗 Live Client URL:** [https://roomsy-nest.web.app/](https://roomsy-nest.web.app/)
 
 ---
 
