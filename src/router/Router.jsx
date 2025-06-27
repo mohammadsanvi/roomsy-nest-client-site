@@ -16,6 +16,7 @@ import AboutUs from "../Pages/AboutUs/AboutUs";
 import Contact from "../Pages/Contact/Contact";
 import Support from "../Pages/Support/Support";
 import Overview from "../Pages/Dashboard/OverView";
+import ProfileSettings from "../Layouts/Dashboard/ProfileSettings";
 
 export const router = createBrowserRouter([
   {
@@ -162,6 +163,10 @@ export const router = createBrowserRouter([
       {
         path:"/dashboard",
         Component:Overview
+      },
+      {
+        path:"/dashboard/profile-settings",
+        Component:ProfileSettings
       }
       
     ],
