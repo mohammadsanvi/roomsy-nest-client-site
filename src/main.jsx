@@ -11,6 +11,7 @@ import { RouterProvider } from 'react-router-dom';
 import { AuthProvider } from './Components/AuthContext/AuthContext.jsx';
 
 
+
 createRoot(document.getElementById('root')).render(
   <HelmetProvider>
     <ThemeProvider>

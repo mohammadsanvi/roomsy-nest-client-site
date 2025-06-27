@@ -14,7 +14,7 @@ export const ThemeProvider = ({ children }) => {
     setTheme((prev) => {
       const newTheme = prev === "light" ? "dark" : "light";
       localStorage.setItem("theme", newTheme);
-      // body class এ থিম যুক্ত করো
+      
       if (newTheme === "dark") {
         document.documentElement.classList.add("dark");
       } else {

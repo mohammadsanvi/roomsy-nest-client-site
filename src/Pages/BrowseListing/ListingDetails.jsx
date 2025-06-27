@@ -69,7 +69,7 @@ const ListingDetails = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white dark:bg-zinc-950 pb-10 pt-32 px-4">
+    <div className="min-h-screen bg-white dark:bg-gray-900 pb-10 pt-32 px-4">
       <Helmet><title>Roomsy Nest | Post Details</title></Helmet>
 
       <Link to='/browse-listing' className="mb-6 max-w-3xl mx-auto">
@@ -80,7 +80,7 @@ const ListingDetails = () => {
       </Link>
 
       <Fade triggerOnce cascade damping={0.08}>
-        <div className="w-full max-w-3xl mx-auto bg-white dark:bg-zinc-900 shadow-2xl rounded-3xl p-8 border border-gray-200 dark:border-zinc-700 transition-all">
+        <div className="w-full max-w-3xl mx-auto bg-white dark:bg-gray-800 shadow-2xl rounded-3xl p-8 border border-gray-200 dark:border-zinc-700 transition-all">
           <div className="text-center mb-6">
             <h2 className="text-xl font-bold text-zinc-700 dark:text-white font-mono transition-all duration-300">
               {likes} people interested in

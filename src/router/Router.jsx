@@ -11,6 +11,10 @@ import UpdateList from "../Pages/MyLIstings/UpdateList/UpdateList";
 import BrowseListing from "../Pages/BrowseListing/BrowseListing";
 import ListingDetails from "../Pages/BrowseListing/ListingDetails";
 import LoadingSpinner from "../Components/LoadingSpinner/LoadingSpinner";
+import DashboardLayout from "../Layouts/Dashboard/DashboardLayout";
+import AboutUs from "../Pages/AboutUs/AboutUs";
+import Contact from "../Pages/Contact/Contact";
+import Support from "../Pages/Support/Support";
 
 export const router = createBrowserRouter([
   {
@@ -30,15 +34,82 @@ export const router = createBrowserRouter([
         Component: Singup,
       },
       {
+        path:'about',
+        Component:AboutUs
+      },
+      {
+        path:'contact',
+        Component:Contact
+      },
+      {
+        path:'support',
+        Component:Support
+      },
+      {
         path: "browse-listing",
         loader: () =>
           fetch("https://roomsy-nest-server-site.vercel.app/roommate-listings"),
-         hasErrorBoundary:<LoadingSpinner></LoadingSpinner>,
+        hasErrorBoundary: <LoadingSpinner></LoadingSpinner>,
         Component: BrowseListing,
       },
       {
-        path: "find-rommate",
-         hasErrorBoundary:<LoadingSpinner></LoadingSpinner>,
+        path: "browse-listing-details/:id",
+        hasErrorBoundary: <LoadingSpinner></LoadingSpinner>,
+        loader: ({ params }) =>
+          fetch(
+            `https://roomsy-nest-server-site.vercel.app/roommate-listings/${params.id}`
+          ),
+        element: (
+          <PrivateRoute>
+            <ListingDetails />
+          </PrivateRoute>
+        )
+      },
+      // {
+      //   path: "find-rommate",
+      //   hasErrorBoundary: <LoadingSpinner></LoadingSpinner>,
+      //   element: (
+      //     <PrivateRoute>
+      //       <AddToFind></AddToFind>
+      //     </PrivateRoute>
+      //   ),
+      // },
+      // {
+      //   path: "my-listing",
+      //   hasErrorBoundary: <LoadingSpinner></LoadingSpinner>,
+      //   element: (
+      //     <PrivateRoute>
+      //       <MyListings></MyListings>
+      //     </PrivateRoute>
+      //   ),
+      // },
+      // {
+      //   path: "my-listing/:id",
+      //   hasErrorBoundary: <LoadingSpinner></LoadingSpinner>,
+      //   loader: ({ params }) =>
+      //     fetch(
+      //       `https://roomsy-nest-server-site.vercel.app/roommate-listings/${params.id}`
+      //     ),
+      //   element: (
+      //     <PrivateRoute>
+      //       <UpdateList />
+      //     </PrivateRoute>
+      //   ),
+      // },
+      // 
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
+    children: [
+        {
+        path: "/dashboard/find-rommate",
+        hasErrorBoundary: <LoadingSpinner></LoadingSpinner>,
         element: (
           <PrivateRoute>
             <AddToFind></AddToFind>
@@ -46,8 +117,8 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "my-listing",
-         hasErrorBoundary:<LoadingSpinner></LoadingSpinner>,
+        path: "/dashboard/my-listing",
+        hasErrorBoundary: <LoadingSpinner></LoadingSpinner>,
         element: (
           <PrivateRoute>
             <MyListings></MyListings>
@@ -56,7 +127,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "my-listing/:id",
-         hasErrorBoundary:<LoadingSpinner></LoadingSpinner>,
+        hasErrorBoundary: <LoadingSpinner></LoadingSpinner>,
         loader: ({ params }) =>
           fetch(
             `https://roomsy-nest-server-site.vercel.app/roommate-listings/${params.id}`
@@ -67,19 +138,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      {
-        path: "browse-listing-details/:id",
-         hasErrorBoundary:<LoadingSpinner></LoadingSpinner>,
-        loader: ({ params }) =>
-          fetch(
-            `https://roomsy-nest-server-site.vercel.app/roommate-listings/${params.id}`
-          ),
-        element: (
-          <PrivateRoute>
-            <ListingDetails />
-          </PrivateRoute>
-        ),
-      },
+      
     ],
   },
   {

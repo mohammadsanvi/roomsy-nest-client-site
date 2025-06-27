@@ -70,7 +70,7 @@ const events = [
 
 const Events = () => {
   return (
-      <section className="py-12 bg-white dark:bg-gray-900 px-10 md:px-16">
+      <section className="py-12 bg-white dark:bg-gray-900">
       <h2 className="text-4xl font-bold text-center text-blue-500 mb-8">
         Upcoming Events
       </h2>

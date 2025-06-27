@@ -65,13 +65,13 @@ const Login = () => {
   };
 
   return (
-    <div className="py-10 my-20 bg-white dark:bg-gray-900 flex items-center justify-center px-4">
+    <div className="py-32 bg-white dark:bg-gray-900 flex items-center justify-center px-4">
       <Helmet>
         <title>Roomsy Nest | Login</title>
       </Helmet>
 
       <Fade direction="left" cascade duration={300}>
-         <div className="bg-gray-100 dark:bg-gray-800 shadow-2xl rounded-xl shadow-xl flex w-full max-w-5xl overflow-hidden">
+         <div className="bg-gray-100 dark:bg-gray-800 shadow-2xl rounded-xl flex w-full max-w-5xl overflow-hidden">
           <div className="hidden md:flex w-1/2 dark:bg-gray-800/90 bg-gradient-to-br bg-gray-100 to-blue-600 items-center justify-center">
             <img
               src="https://i.ibb.co/SXGZs7tQ/174a848797c353a481b94c11e76c48e7-removebg-preview.png"

@@ -48,7 +48,7 @@ const slides = [
 
 const Banner = () => {
   return (
-    <div className="md:min-h-screen lg:h-40 md:h-[calc(100vh-64px)] py-10 lg:py-20 w-full bg-white dark:bg-gray-900 transition-colors duration-500">
+    <div className="py-10 lg:py-20 w-full bg-white dark:bg-gray-900 transition-colors duration-500">
       <Swiper
         modules={[Autoplay, Pagination]}
         loop={true}

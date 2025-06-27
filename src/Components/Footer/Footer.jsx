@@ -2,10 +2,12 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 import { Fade } from "react-awesome-reveal";
+import Container from "../Container/Container";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-100 dark:bg-gray-900 md:p-10 p-4 text-black dark:text-white px-6 py-10">
+   <Container>
+     <footer className="bg-gray-100 dark:bg-gray-900 md:p-10 p-4 text-black dark:text-white px-6 py-10">
 
        <Fade delay={100} cascade damping={0.3}>
       <div>
@@ -23,7 +25,7 @@ const Footer = () => {
           </p>
           {/* Social Icons */}
           <div className="flex gap-4 md:gap-10 my-8 text-lg text-gray-600 dark:text-gray-300">
-            <a href="#" className="hover:text-blue-500">
+            <a href="https://www.facebook.com/mohammadsanvi0" className="hover:text-blue-500">
               <FaFacebookF size={30} />
             </a>
             <a href="#" className="hover:text-blue-500">
@@ -101,6 +103,7 @@ const Footer = () => {
 </Fade>
 
     </footer>
+   </Container>
   );
 };
 
