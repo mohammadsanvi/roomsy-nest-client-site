@@ -102,7 +102,7 @@ const MyListings = () => {
                   <td className="p-4">{item.roomType}</td>
                   <td className="p-4">
                     <div className="flex gap-2 flex-wrap">
-                      <Link to={`/my-listing/${item._id}`}>
+                      <Link to={`${item._id}`}>
                         <button className="px-3 py-1 rounded bg-blue-600 text-white hover:bg-blue-700 transition">
                           Update
                         </button>

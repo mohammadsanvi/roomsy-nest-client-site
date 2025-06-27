@@ -15,6 +15,7 @@ import DashboardLayout from "../Layouts/Dashboard/DashboardLayout";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import Contact from "../Pages/Contact/Contact";
 import Support from "../Pages/Support/Support";
+import Overview from "../Pages/Dashboard/OverView";
 
 export const router = createBrowserRouter([
   {
@@ -126,7 +127,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "my-listing/:id",
+        path: "/dashboard/my-listing/:id",
         hasErrorBoundary: <LoadingSpinner></LoadingSpinner>,
         loader: ({ params }) =>
           fetch(
@@ -138,6 +139,30 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+       {
+        path: "/dashboard/browse-listing",
+        loader: () =>
+          fetch("https://roomsy-nest-server-site.vercel.app/roommate-listings"),
+        hasErrorBoundary: <LoadingSpinner></LoadingSpinner>,
+        Component: BrowseListing,
+      },
+      {
+        path: "browse-listing-details/:id",
+        hasErrorBoundary: <LoadingSpinner></LoadingSpinner>,
+        loader: ({ params }) =>
+          fetch(
+            `https://roomsy-nest-server-site.vercel.app/roommate-listings/${params.id}`
+          ),
+        element: (
+          <PrivateRoute>
+            <ListingDetails />
+          </PrivateRoute>
+        )
+      },
+      {
+        path:"/dashboard",
+        Component:Overview
+      }
       
     ],
   },
