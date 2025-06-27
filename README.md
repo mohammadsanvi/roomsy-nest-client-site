@@ -43,9 +43,19 @@ RoomsyNest is a modern, responsive roommate listing and management web applicati
 
 > ✅ Include these screenshots in the repository or as deployment preview links:
 
-* 📸 [https://i.ibb.co/DP5bKCxN/image.png](https://i.ibb.co/DP5bKCxN/image.png)
-* 📸 [https://i.ibb.co/qMC92mT0/image.png](https://i.ibb.co/qMC92mT0/image.png)
-* 📸 [`profile-settings.png` – Profile update form with image upload](https://i.ibb.co/KcnSMzdC/image.png)
+Dashboard Overview
+
+Browse Listing Cards
+
+Profile Settings Page
+
+## 📸 UI Screenshot
+
+![Romsy Nest Ui](https://i.ibb.co/DP5bKCxN/image.pngg)
+![Romsy Nest Ui](https://i.ibb.co/qMC92mT0/image.png)
+![Romsy Nest Ui](https://i.ibb.co/KcnSMzdC/image.png)
+
+---
 
 ---
 
